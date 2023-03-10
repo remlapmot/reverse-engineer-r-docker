@@ -39,8 +39,8 @@ RUN apt-get update && \
 
 # Uninstall additional and packages at wrong versions from r-ver and add them at correct versions
 RUN R -e "remove.packages(c('littler', \
-                            'docopt', \
-                            'boot', \
+                            'docopt')); \
+          remove.packages(c('boot', \
                             'class', \
                             'cluster', \
                             'codetools', \
@@ -400,6 +400,15 @@ RUN R -q -e "install.packages('ggfortify', \
 # 2023-02-09: forestploter
 RUN R -q -e "install.packages('forestploter', \
                               repos = '${RSPM}/2023-02-09+Sbsm30SZ')"
+
+# renv 0.16.0
+RUN R -q -e "install.packages('renv', repos = '${RSPM}/2022-09-30+2oOWnlBt')"
+
+# 2023-03-10: PHEindicatormethods
+RUN R -q -e "install.packages('PHEindicatormethods', repos = '${RSPM}/2020-06-29+mBrI1rUy')"
+
+# 2023-03-10: rpart.plot
+RUN R -q -e "install.packages('rpart.plot', repos = '${RSPM}/2023-03-09+N8dAXCGm')"
 
 # Write packages-legacy-02.csv and packages-alphabetical-legacy-02.csv in container
 RUN R -q -e "ip <- installed.packages()[, c('Package', 'Version')]; \

@@ -426,6 +426,10 @@ RUN R -q -e "install.packages('twopartm', repos = '${RSPM}/2023-05-16+VDNBdopv')
 # 2023-05-19 pscl
 RUN R -q -e "install.packages('pscl', repos = '${RSPM}/2023-05-19+uqEDUQaz')"
 
+# 2023-06-01 update cli, install fastshap, shapviz
+RUN R -q -e "install.packages(c('cli', 'fastshap', 'shapviz'), \
+                repos = '${RSPM}/2023-06-01+Y3Jx1hNK')"
+
 # Write packages-legacy-02.csv and packages-alphabetical-legacy-02.csv in container
 RUN R -q -e "ip <- installed.packages()[, c('Package', 'Version')]; \
              write.csv(ip, \

@@ -430,6 +430,9 @@ RUN R -q -e "install.packages('pscl', repos = '${RSPM}/2023-05-19+uqEDUQaz')"
 RUN R -q -e "install.packages(c('cli', 'fastshap', 'shapviz'), \
                 repos = '${RSPM}/2023-06-01+Y3Jx1hNK')"
 
+# 2023-06-16 epitools
+RUN R -q -e "install.packages('epitools', repos = '${RSPM}/2023-06-14+j7ezeyBe')"
+
 # Write packages-legacy-02.csv and packages-alphabetical-legacy-02.csv in container
 RUN R -q -e "ip <- installed.packages()[, c('Package', 'Version')]; \
              write.csv(ip, \

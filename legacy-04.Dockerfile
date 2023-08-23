@@ -433,6 +433,30 @@ RUN R -q -e "install.packages(c('cli', 'fastshap', 'shapviz'), \
 # 2023-06-16 epitools
 RUN R -q -e "install.packages('epitools', repos = '${RSPM}/2023-06-14+j7ezeyBe')"
 
+# 2023-08-22 BayesianTools
+RUN R -q -e "install.packages(c('BayesianTools', \
+                                'DHARMa', \
+                                'ape', \
+                                'ellipse', \
+                                'emulator', \
+                                'expm', \
+                                'gap', \
+                                'gap.datasets', \
+                                'gmm', \
+                                'hexbin', \
+                                'IDPmisc', \
+                                'msm', \
+                                'plotly', \
+                                'qgam', \
+                                'tmvtnorm'), repos = '${RSPM}/2023-08-21+PzN22n8L')"
+# Fix plotly back to 4.8.0
+RUN R -q -e "remove.packages('plotly'); \
+            install.packages('plotly', repos = '${RSPM}/2019-04-09+vWThhkjm')"
+# Fix fastmap to 1.0.1
+RUN R -q -e "install.packages('fastmap', repos = '${RSPM}/2019-10-10+EJ_0XuhN')"
+# Fix htmltools to 0.5.0 and htmlwidgets to 1.5.1
+RUN R -q -e "install.packages(c('htmltools', 'htmlwidgets'), repos = '${RSPM}/2020-06-18+J6zIiIH3')"
+
 # Write packages-legacy-02.csv and packages-alphabetical-legacy-02.csv in container
 RUN R -q -e "ip <- installed.packages()[, c('Package', 'Version')]; \
              write.csv(ip, \

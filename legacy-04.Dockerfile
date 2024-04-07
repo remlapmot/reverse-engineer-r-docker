@@ -457,6 +457,14 @@ RUN R -q -e "install.packages('fastmap', repos = '${RSPM}/2019-10-10+EJ_0XuhN')"
 # Fix htmltools to 0.5.0 and htmlwidgets to 1.5.1
 RUN R -q -e "install.packages(c('htmltools', 'htmlwidgets'), repos = '${RSPM}/2020-06-18+J6zIiIH3')"
 
+# Note I missed some releases here
+
+# 2024-04-02 Add TMB and glmmTMB
+RUN R -q -e "install.packages('TMB', repos = '${RSPM_SOURCE}/2023-12-13'); \
+            install.packages('glmmTMB', repos = '${RSPM_SOURCE}/2021-07-21')"
+# ggh4x is now at 0.2.6
+RUN R -q -e "install.packages('ggh4x', repos = '${RSPM_SOURCE}/2023-08-31')"
+
 # Write packages-legacy-02.csv and packages-alphabetical-legacy-02.csv in container
 RUN R -q -e "ip <- installed.packages()[, c('Package', 'Version')]; \
              write.csv(ip, \

@@ -465,6 +465,9 @@ RUN R -q -e "install.packages('TMB', repos = '${RSPM_SOURCE}/2023-12-13'); \
 # ggh4x is now at 0.2.6
 RUN R -q -e "install.packages('ggh4x', repos = '${RSPM_SOURCE}/2023-08-31')"
 
+# Deactivate renv because it causes problems on restarts of rstudio-server
+RUN R -q -e "renv::deactivate()"
+
 # Write packages-legacy-02.csv and packages-alphabetical-legacy-02.csv in container
 RUN R -q -e "ip <- installed.packages()[, c('Package', 'Version')]; \
              write.csv(ip, \

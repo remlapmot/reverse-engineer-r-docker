@@ -30,8 +30,10 @@ pkgs <- unique(na.omit(unlist(sapply(input, "[", "packages"))))
 repos <- unique(na.omit(unlist(sapply(input, "[", "repos"))))
 repos <- repos[repos != ""]
 nrepos <- length(repos)
-names(repos) <- LETTERS[1:nrepos]
-pak::repo_add(.list = repos)
+if (nrepos > 0) {
+  names(repos) <- LETTERS[1:nrepos]
+  pak::repo_add(.list = repos)
+}
 
 # Create pkg.lock file
 pak::lockfile_create(pkgs, lockfile = "/pkg.lock")

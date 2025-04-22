@@ -94,7 +94,7 @@ tcltk, tools, and utils) for the respective version of R.
 | datawizard            | 1.0.0         | <https://cran.r-project.org/package=datawizard>            |
 | DBI                   | 1.2.3         | <https://cran.r-project.org/package=DBI>                   |
 | dbplyr                | 2.5.0         | <https://cran.r-project.org/package=dbplyr>                |
-| dd4d                  | 0.0.0.9000    | <https://opensafely-core.r-universe.dev/dd4d>              |
+| dd4d                  | 0.0.0.9000    | NA                                                         |
 | deldir                | 2.0-4         | <https://cran.r-project.org/package=deldir>                |
 | DEoptimR              | 1.1-3-1       | <https://cran.r-project.org/package=DEoptimR>              |
 | Deriv                 | 4.1.6         | <https://cran.r-project.org/package=Deriv>                 |

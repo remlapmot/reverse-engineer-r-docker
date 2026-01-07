@@ -206,3 +206,7 @@ comment = "Requested by Will. This is a soft (Suggests list) dependency of gtsum
 [marginaleffects]
 packages = "marginaleffects"
 comment = "Requested by Will. This is a package to compute and plot marginal effects for fitted statistical models."
+
+[mediation-package]
+packages = "medflex"
+comment = "Requested by Ruth Costello. This is a package to for flexible mediation analysis using natural effect models"

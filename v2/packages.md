@@ -283,6 +283,7 @@ tcltk, tools, and utils) for the respective version of R.
 | matrixStats           | 1.5.0         | <https://cran.r-project.org/package=matrixStats>           |
 | maxstat               | 0.7-25        | <https://cran.r-project.org/package=maxstat>               |
 | mclust                | 6.1.1         | <https://cran.r-project.org/package=mclust>                |
+| medflex               | 0.6-10        | <https://cran.r-project.org/package=medflex>               |
 | memoise               | 2.0.1         | <https://cran.r-project.org/package=memoise>               |
 | metadat               | 1.4-0         | <https://cran.r-project.org/package=metadat>               |
 | metafor               | 4.8-0         | <https://cran.r-project.org/package=metafor>               |

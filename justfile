@@ -84,5 +84,8 @@ publish-rstudio version:
       docker push ghcr.io/opensafely-core/rstudio:latest
     fi
 
-check:
-    uvx --python 3.13 toml-validator v2/packages.toml
+check version:
+    #!/usr/bin/env bash
+    if [[ "{{ version }}" =~ ^v[23]$ ]]; then
+      uvx --python 3.13 toml-validator {{ version }}/packages.toml
+    fi

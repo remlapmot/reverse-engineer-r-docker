@@ -43,7 +43,7 @@ jobs:
       uses: astral-sh/setup-uv@4db96194c378173c656ce18a155ffc14a9fc4355
 
     - name: check
-      run: just check
+      run: just check ${{ matrix.version }}
 
     - name: build
       run: just build ${{ matrix.version }}

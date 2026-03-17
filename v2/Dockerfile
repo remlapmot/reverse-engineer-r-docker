@@ -38,6 +38,7 @@ EOF
 FROM base-r AS r
 ARG REPOS="default-arg-to-silence-docker"
 ARG MAJOR_VERSION=v2
+ENV MAJOR_VERSION=${MAJOR_VERSION}
 
 # Some static metadata for this specific image, as defined by:
 # https://github.com/opencontainers/image-spec/blob/master/annotations.md#pre-defined-annotation-keys

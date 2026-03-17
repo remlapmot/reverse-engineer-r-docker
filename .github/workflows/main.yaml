@@ -19,12 +19,12 @@ jobs:
         run: |
           set -x
           if [[ "${{ github.ref }}" == 'refs/heads/main' ]]; then
-            # build, test and publish both versions on main.
+            # build, test and publish all versions on main.
             # v1 will take ~2 hours
-            echo 'versions=["v1", "v2"]' >> "$GITHUB_OUTPUT"
+            echo 'versions=["v1", "v2", "v3"]' >> "$GITHUB_OUTPUT"
           else
-            # only build v2 in CI as v1 is too slow
-            echo 'versions=["v2"]' >> "$GITHUB_OUTPUT"
+            # only build v2 and v3 in CI as v1 is too slow
+            echo 'versions=["v2", "v3"]' >> "$GITHUB_OUTPUT"
           fi
   tests:
     needs: matrix

@@ -37,6 +37,7 @@ EOF
 # Finally, build the actual image from the base-r image
 FROM base-r AS r
 ARG REPOS="default-arg-to-silence-docker"
+ARG MAJOR_VERSION=v2
 
 # Some static metadata for this specific image, as defined by:
 # https://github.com/opencontainers/image-spec/blob/master/annotations.md#pre-defined-annotation-keys
@@ -62,7 +63,11 @@ WORKDIR /workspace
 # Settings to make it easier for users to add packages
 RUN --mount=type=bind,source=scripts/rprofile-site-append-2.R,target=/tmp/rprofile-site-append-2.R \
     cat /tmp/rprofile-site-append-2.R >> /usr/lib/R/etc/Rprofile.site
-COPY scripts/local-packages-README.md /usr/local-packages-README.md
+RUN --mount=type=bind,source=scripts/local-packages-README.Rmd,target=/tmp/local-packages-README.Rmd <<EOF
+    cp /tmp/local-packages-README.Rmd /root/local-packages-README.Rmd
+    Rscript -e "rmarkdown::render('/root/local-packages-README.Rmd', output_file='/usr/local-packages-README.md')"
+    rm /root/local-packages-README.Rmd
+EOF
 
 #################################################
 #

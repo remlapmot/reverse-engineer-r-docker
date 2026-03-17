@@ -25,7 +25,7 @@ build version:
       docker run --platform linux/amd64 --rm r:{{ version }} cat /renv/renv.lock > ${MAJOR_VERSION}/renv.lock
     elif [[ "{{ version }}" =~ ^v[23]$ ]]; then
       # update pkg.lock
-      cp ${MAJOR_VERSION}/pkg.lock ${MAJOR_VERSION}/pkg.lock.bak
+      [[ -f ${MAJOR_VERSION}/pkg.lock ]] && cp ${MAJOR_VERSION}/pkg.lock ${MAJOR_VERSION}/pkg.lock.bak || true
       # cannot use docker compose run as it mangles the output
       docker run --platform linux/amd64 --rm r:{{ version }} cat /pkg.lock > ${MAJOR_VERSION}/pkg.lock
     fi

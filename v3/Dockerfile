@@ -66,9 +66,7 @@ WORKDIR /workspace
 RUN --mount=type=bind,source=scripts/rprofile-site-append-2.R,target=/tmp/rprofile-site-append-2.R \
     cat /tmp/rprofile-site-append-2.R >> /usr/lib/R/etc/Rprofile.site
 RUN --mount=type=bind,source=scripts/local-packages-README.Rmd,target=/tmp/local-packages-README.Rmd <<EOF
-    cp /tmp/local-packages-README.Rmd /root/local-packages-README.Rmd
-    Rscript -e "rmarkdown::render('/root/local-packages-README.Rmd', output_file='/usr/local-packages-README.md')"
-    rm /root/local-packages-README.Rmd
+    Rscript -e "rmarkdown::render('/tmp/local-packages-README.Rmd', output_file = '/usr/local-packages-README.md')"
 EOF
 
 #################################################

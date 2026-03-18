@@ -14,7 +14,7 @@ local_dir <- paste0("_.local-packages/r/", v, "_")
 
 # .local-packages a directory for user installed libraries
 
-This directory contains user installed libraries, for say use running OpenSAFELY code in a Codespace or locally.
+This directory contains user installed libraries, for say running OpenSAFELY code in a Codespace or locally.
 
 ## How to add and remove user installed R packages
 

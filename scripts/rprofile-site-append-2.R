@@ -3,6 +3,7 @@
 local_pkg_dir <- paste0('/workspace/.local-packages/r/', Sys.getenv("MAJOR_VERSION"))
 if (dir.exists(local_pkg_dir))
   .libPaths(c(local_pkg_dir, .libPaths()))
+rm(local_pkg_dir)
 
 # Monkey patch install.packages to create local package directory if it doesn't exist and
 # create a .gitignore file within in and copy in the README.md.

@@ -39,6 +39,7 @@ FROM base-r AS r
 ARG REPOS="default-arg-to-silence-docker"
 ARG MAJOR_VERSION=v3
 ENV MAJOR_VERSION=${MAJOR_VERSION}
+RUN echo "MAJOR_VERSION=${MAJOR_VERSION}" >> /usr/lib/R/etc/Renviron.site
 
 # Some static metadata for this specific image, as defined by:
 # https://github.com/opencontainers/image-spec/blob/master/annotations.md#pre-defined-annotation-keys

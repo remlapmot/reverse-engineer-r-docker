@@ -114,8 +114,8 @@ COPY rstudio/rstudio-dependencies.txt /root/rstudio-dependencies.txt
 RUN --mount=type=cache,target=/var/cache/apt,id=apt-2004 \
     --mount=type=secret,id=ubuntu_pro_token \
     /root/docker-apt-install.sh /root/rstudio-dependencies.txt &&\
-    test -f /var/cache/apt/"${RSTUDIO_DEB}" ||\
-    /usr/lib/apt/apt-helper download-file "${RSTUDIO_BASE_URL}${RSTUDIO_DEB}" /var/cache/apt/"${RSTUDIO_DEB}" &&\
+    { test -f /var/cache/apt/"${RSTUDIO_DEB}" ||\
+      /usr/lib/apt/apt-helper download-file "${RSTUDIO_BASE_URL}${RSTUDIO_DEB}" /var/cache/apt/"${RSTUDIO_DEB}"; } &&\
     apt-get install --no-install-recommends -y /var/cache/apt/"${RSTUDIO_DEB}"
 
 # Configuration

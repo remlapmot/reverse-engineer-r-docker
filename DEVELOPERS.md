@@ -26,9 +26,9 @@ Under the hood, this builds `VERSION/Dockerfile` using docker compose and buildk
 
 ### Building on GitHub Actions
 
-The v1 image is built on GitHub Actions when there is a new commit on main (i.e., when a PR is merged). Typically, the build takes approximately 2 hours.
+The v2 and v3 images are built on GitHub Actions when there is a new commit on a branch, and are published when that commit is on main. Typically, each build takes approximately 5 minutes.
 
-The v2 image is built on GitHub Actions when there is a new commit on a branch. Typically, the build takes approximately 5 minutes.
+The v1 image is deprecated and is no longer built on GitHub Actions. It can still be built locally with `just build v1`, which takes approximately 2 hours.
 
 ### Building locally
 

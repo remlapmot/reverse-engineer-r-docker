@@ -8,29 +8,11 @@ permissions:
   packages: write
 
 jobs:
-  matrix:
-    runs-on: ubuntu-22.04
-    outputs:
-      versions: ${{ steps.versions.outputs.versions }}
-    steps:
-      - name: Set matrix
-        id: versions
-        run: |
-          set -x
-          if [[ "${{ github.ref }}" == 'refs/heads/main' ]]; then
-            # build, test and publish all versions on main.
-            # v1 will take ~2 hours
-            echo 'versions=["v1", "v2", "v3"]' >> "$GITHUB_OUTPUT"
-          else
-            # only build v2 and v3 in CI as v1 is too slow
-            echo 'versions=["v2", "v3"]' >> "$GITHUB_OUTPUT"
-          fi
   tests:
-    needs: matrix
     runs-on: ubuntu-24.04
     strategy:
       matrix:
-        version: ${{fromJson(needs.matrix.outputs.versions)}}
+        version: [v2, v3]
 
     steps:
 
